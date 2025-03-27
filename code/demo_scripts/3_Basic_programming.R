@@ -1,11 +1,11 @@
 # ADF&G R Intro Workshop
-# Justin Priest & Matt Tyers
-# justin.priest@alaska.gov
+# Logan Wendling & Matt Tyers
+# logan.wendling@alaska.gov
 # matt.tyers@alaska.gov
 
 
-#####      SCRIPT 3      #####
-##### PROGRAMMING BASICS #####
+#####         SCRIPT 3           #####
+##### PROGRAMMING BASICS, part I #####
 
 
 # Welcome back to R!

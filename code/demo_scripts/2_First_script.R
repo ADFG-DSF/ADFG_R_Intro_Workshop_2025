@@ -1,6 +1,6 @@
 # ADF&G R Intro Workshop
-# Justin Priest & Matt Tyers
-# justin.priest@alaska.gov
+# Logan Wendling & Matt Tyers
+# logan.wendling@alaska.gov
 # matt.tyers@alaska.gov
 
 
