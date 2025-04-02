@@ -73,8 +73,10 @@ vector1 * vector2
 
 
 # what happens if vectors aren't the same length?
-c(1, 2, 3, 4) + c(10, 20, 30)   # when the longer length is not a multiple of the shorter
-c(1, 2, 3, 4, 5, 6) + c(10, 20, 30)   # when the longer length IS a multiple of the shorter
+c(10, 20, 30, 40) + c(1, 2, 3)   # when the longer length is not a multiple of the shorter
+c(10, 20, 30, 40, 50, 60) + c(1, 2, 3)   # when the longer length IS a multiple of the shorter
+c(10, 20, 30, 40, 50, 60) + 1   # we've been recycling without knowing it!!
+
 
 ## ---------------------------------------
 
