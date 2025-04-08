@@ -103,6 +103,11 @@ seq(from=10, to=100, by=10)
 seq(10, 100, 10)  # if you use arguments in order, it knows what you mean
 seq(to=100, by=10, from=10)  # but you can also specify which is which and use them out of order
 
+# what happens here? why?
+mean(1, 2, 3, 4, 5)    # R thinks that the 2, 3, 4, 5 are extra ARGUMENTS
+mean(c(1, 2, 3, 4, 5))  # input is one "thing"
+mean(1:5)  # R interprets the 1:5 as a single vector
+
 
 # NA is a placeholder for an unknown quantity
 x1 <- c(1:10, NA)   # this combines 1 through 10 with an NA
@@ -128,9 +133,14 @@ maturity_factor
 summary(maturity_char)
 summary(maturity_factor)
 
-maturity_char[5] <- "Geezer"       # R will do this
-maturity_factor[5] <- "Geezer"     # R will NOT do this!
+# worth noting what summary() does for numeric
+summary(x)
+summary(x1)
 
+# also plot does different things for different classes
+plot(y)
+plot(maturity_char)
+plot(maturity_factor)
 
 
 
@@ -156,6 +166,9 @@ while(x > 0) {
   x <- x+1
   print(x)
 }
+
+# or maybe use this one
+while(TRUE) cat(sample(0:9, 1))
 
 
 # Incomplete code
