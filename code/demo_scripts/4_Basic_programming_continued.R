@@ -124,6 +124,57 @@ summary(operator_data)
 
 
 
+
+## --------------------------------
+
+data(mtcars)   # this loads a built-in dataset that is included with R
+mtcars  # viewing the dataset
+head(mtcars) # just viewing the first 5 rows
+tail(mtcars) # last 5 rows
+
+# a few more ways of viewing it...
+summary(mtcars)
+str(mtcars)
+
+
+# subset of cars with 4-cylinder engines?
+mtcars[mtcars$cyl == 4, ]
+
+# subset of cars with 4-cylinder engines AND more than 90 horsepower?
+mtcars[mtcars$cyl == 4 & mtcars$hp > 90, ]
+
+# make a selection, with cars that have 4 cylinders and cars that have 6 cylinders
+mtcars[mtcars$cyl == 4 & mtcars$cyl==6, ]  # what happened??
+mtcars[mtcars$cyl == 4 | mtcars$cyl==6, ]  # that's better!
+
+# how else could we do this?
+mtcars[mtcars$cyl %in% c(4,6), ]
+mtcars[mtcars$cyl <= 6, ]
+mtcars[mtcars$cyl != 8, ]  # technically correct but a little scary
+
+mtcars$cartype <- ifelse(mtcars$qsec < 17 & mtcars$mpg > 25, "fast and efficient", 
+                  ifelse(mtcars$qsec < 17, "fast", 
+                         ifelse(mtcars$mpg > 25, "efficient", "")))
+
+
+# we need the mtcars$ to tell R to look inside the mtcars data frame
+plot(mtcars$hp, mtcars$mpg)  
+plot(hp, mpg)   # doesn't work
+
+# there are some Base-R ways of telling R to look inside mtcars
+# (Logan will be presenting some better ways tomorrow)
+with(mtcars, plot(hp, mpg))
+plot(mpg~hp, data=mtcars)
+
+plot(mtcars)  # cool way to plot the whole data.frame at once!
+class(mtcars)
+# remember, functions like plot() depend on the type of object that is being plotted
+
+
+
+
+### some additional practice.....
+
 # some more fun with data.frames & logicals ...
 df1 <- data.frame(day = c(1, 2, 3, 1, 2, 3),
                   operator = c("A", "A", "A", "B", "B", "B"),

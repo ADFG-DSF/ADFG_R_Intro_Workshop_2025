@@ -20,37 +20,39 @@ To run the learnr tutorials on your own computer you will need to paste the foll
 Then open the desired tutorial script in RStudio and click "Run Document" above the script pane. 
 
 ## Your Instructors
-Welcome to the course! Your instructors are Justin Priest and Matt Tyers, 
-a biologist and biometrician for ADF&G. We have both learned R through a variety 
+Welcome to the course! Your instructors are Logan Wendling and Matt Tyers, 
+two biometricians with ADF&G. We have both learned R through a variety 
 of methods including self-taught instruction, formal courses, reading books, and 
 just by playing around in the program. We designed this course specifically based 
-on many of the difficulties we both encountered on our journey. Justin and Matt 
+on many of the difficulties we both encountered on our journey. Logan and Matt 
 both have experience teaching R to others and have taken a workshop on how to 
 improve our teaching styles. That said, please ask us questions at any time!  
 
 
 ## Agenda
-This course will be split over two days of about 8 hours each day.
-Before each section we will take a small break.  
+This course will be split over three days.
+After each section we will take a small break.  
 
 ### Day 1   
 09:00-09:30 - 1: Course Welcome  
 09:30-10:30 - 2: About R & RStudio  
 10:30-12:00 - 3: Programming Basics, Part 1  
 12:00-13:30 - Lunch Break  
-13:30-15:00 - 4: Programming Basics, Part 2  
-15:00-16:30 - 5: Reading Real Data  
-16:30-17:00 - Review of Material  
+13:30-15:30 - 4: Programming Basics, Part 2  
+15:30-16:30 - (Introducing R Markdown) 
 
 ### Day 2  
 09:00-09:30 - Welcome Back and Review  
-09:30-11:00 - 6: Data Manipulation   
-11:00-12:00 - 7: Amazing Charts in ggplot, Part 1  
+09:30-11:00 - 5: Amazing Charts in ggplot, Part 1  
+11:00-12:00 - 5: Amazing Charts in ggplot, Part 2  
 12:00-13:30 - Lunch Break  
-13:30-14:30 - 7: Amazing Charts in ggplot, Part 2  
-14:30-15:00 - 8: The Extras  
-15:00-16:30 - 9: The Project  
-16:30-17:00 - 10: The Wrapup  
+13:30-14:30 - 6: Data Manipulation
+14:30-15:30 - 7: Reading (real!) Data, Data Best Practices
+
+### Day 3
+09:00-10:00 - 8: The Extras  
+10:00-11:30 - 9: The Project  
+11:30-12:00 - 10: The Wrapup  
 
 ## Course Outcomes
 - Recognize basic codes / commands  
