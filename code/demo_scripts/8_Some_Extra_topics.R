@@ -10,6 +10,34 @@
 
 ## -------- statistics -------- ##
 
+# Disclaimer: THIS IS NOT A STATISTICS COURSE!!
+
+data(mtcars)
+help(mtcars)
+
+# is there a difference in mean mpg between automatic & manual?
+# 0 = automatic
+# 1 = manual
+t.test(mtcars$mpg[mtcars$am==0], mtcars$mpg[mtcars$am==1])
+t.test(mpg ~ am,
+       data = mtcars)
+
+# maybe there's more to the story...
+mpg_by_am <- with(mtcars,
+                  table(cyl, am))
+chisq.test(mpg_by_am)
+
+# the lm() function fits Linear Models: 
+# - simple linear regression, multiple linear regression, ANOVA, ...
+lm_cars <- lm(mpg ~ cyl, data=mtcars)
+summary(lm_cars)
+
+# MLR gives simultaneous effects of multiple variables
+lm_cars <- lm(mpg ~ cyl + drat + wt + am, data=mtcars)
+summary(lm_cars)
+
+
+
 
 
 
@@ -20,10 +48,35 @@
 
 ## -------- writing your own functions -------- ##
 
+NChapman <- function(n1, n2, m2) {  
+  Nhat <- (n1 + 1)*(n2 + 1)/(m2 + 1) - 1  
+  return(Nhat)
+}
+
+NChapman(n1=100, n2=200, m2=20)
+NChapman(n1=200, n2=300, m2=50)
+
+# adding an additional argument with a default
+NChapman <- function(n1, n2, m2, subservience=TRUE) {  
+  Nhat <- (n1 + 1)*(n2 + 1)/(m2 + 1) - 1  
+  if(subservience) {
+    print("you got it, boss.")
+  }
+  return(Nhat)
+}
+
+NChapman(n1=100, n2=200, m2=20)
+
+
+
 
 
 
 ## -------- writing your own packages -------- ##
+
+# show Project associated with dsftools
+# - open something from /R, show functions, roxygen documentation
+# - show tests
 
 
 
