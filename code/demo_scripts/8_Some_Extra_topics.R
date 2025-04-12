@@ -27,7 +27,7 @@ mpg_by_am <- with(mtcars,
                   table(cyl, am))
 chisq.test(mpg_by_am)
 
-# the lm() function fits Linear Models: 
+# the lm() function fits Linear Models:
 # - simple linear regression, multiple linear regression, ANOVA, ...
 lm_cars <- lm(mpg ~ cyl, data=mtcars)
 summary(lm_cars)
@@ -43,13 +43,31 @@ summary(lm_cars)
 
 ## -------- simulation -------- ##
 
+random_normal <- rnorm(n=10000, mean=100, sd=10)
+head(random_normal)
+hist(random_normal)
+
+random_binom <- rbinom(n=10000, size=100, prob=0.8)
+head(random_binom)
+hist(random_binom)
+plot(y=1:10000, x=sort(random_binom))
+
+
+# a hilarious way to approximate pi through stochastic simulation
+x <- runif(10000000, min=-1, max=1)
+y <- runif(10000000, min=-1, max=1)
+
+mean(x^2 + y^2 < 1) * 4
+# the proportion of points within a circle, scaled by the area of an enclosing square
+
+
 
 
 
 ## -------- writing your own functions -------- ##
 
-NChapman <- function(n1, n2, m2) {  
-  Nhat <- (n1 + 1)*(n2 + 1)/(m2 + 1) - 1  
+NChapman <- function(n1, n2, m2) {
+  Nhat <- (n1 + 1)*(n2 + 1)/(m2 + 1) - 1
   return(Nhat)
 }
 
@@ -57,8 +75,8 @@ NChapman(n1=100, n2=200, m2=20)
 NChapman(n1=200, n2=300, m2=50)
 
 # adding an additional argument with a default
-NChapman <- function(n1, n2, m2, subservience=TRUE) {  
-  Nhat <- (n1 + 1)*(n2 + 1)/(m2 + 1) - 1  
+NChapman <- function(n1, n2, m2, subservience=TRUE) {
+  Nhat <- (n1 + 1)*(n2 + 1)/(m2 + 1) - 1
   if(subservience) {
     print("you got it, boss.")
   }
@@ -113,24 +131,36 @@ for(i in seq_along(filenames)) {
 
 library(tidyverse)
 # this example isn't actually that interesting
-waterquality <- read_csv("data/DEC_waterquality_2016.csv", skip=1) %>%
-  filter(`Characteristic Name` == "Dissolved oxygen (DO)") %>%
-  rename("Latitude" = "Monitoring Location Latitude") %>%
-  rename("Longitude" = "Monitoring Location Longitude") %>%
-  rename("DO" = "Result Value") %>%
-  group_by(`Monitoring Location Name`) %>%
-  summarise(mean_DO=mean(DO),
-            Lat=mean(Latitude),
-            Long=mean(Longitude))
+# waterquality <- read_csv("data/DEC_waterquality_2016.csv", skip=1) %>%
+#   filter(`Characteristic Name` == "Dissolved oxygen (DO)") %>%
+#   rename("Latitude" = "Monitoring Location Latitude") %>%
+#   rename("Longitude" = "Monitoring Location Longitude") %>%
+#   rename("DO" = "Result Value") %>%
+#   group_by(`Monitoring Location Name`) %>%
+#   summarise(mean_DO=mean(DO),
+#             Lat=mean(Latitude),
+#             Long=mean(Longitude))
+
+tburbs <- read_csv("https://github.com/ADFG-DSF/Tanana_burbot_telemetry/raw/refs/heads/main/data/TananaBurbotTelem3.csv")
+
 # sf
 
 # leaflet
 library(leaflet)
 leaflet(waterquality) %>%
   addTiles() %>%
-  addMarkers(~Long, ~Lat, label=~`Monitoring Location Name`)  
-  # addCircles(~Long, ~Lat, label=~`Monitoring Location Name`)  
+  addMarkers(~Long, ~Lat, label=~`Monitoring Location Name`)
+  # addCircles(~Long, ~Lat, label=~`Monitoring Location Name`)
 
+leaflet(tburbs) %>%
+  addTiles() %>%
+  # addMarkers(lng= ~longitude,
+  #            lat= ~latitude,
+  #            label= ~unique_id...2)
+  addCircles(lng= ~longitude,
+             lat= ~latitude,
+             label= ~unique_id...2,
+             color= ~rainbow(17)[as.numeric(as.factor(flight_num))])
 
 
 
