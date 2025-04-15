@@ -356,10 +356,9 @@ Instead of using the default `Salary65th_cleaned` object name, we can name it `s
 ```{r}
 
 # Note this will run on my computer only. This file path is nonsensical to any other computer. 
-read_csv("C:/Users/lwendling/Desktop/RCourse/Tidyverse/Salary65th_cleaned.csv")
-
+read_csv("C:/Users/lwendling/Desktop/ADFG_R_Intro_Workshop_2025/data/Salary65th_cleaned.csv")
 # Read in your data
-salary <- read_csv("Salary65th_cleaned.csv")
+salary <- read_csv("data/Salary65th_cleaned.csv")
 
 #Quick preview of the data's structure
 glimpse(salary)
@@ -491,7 +490,7 @@ ggplot(data = salary, mapping = aes(
     name = "Job Family"
   ) + 
   scale_size_manual(
-    values = c(1.5, 2), # Specifies the size for F&W vs Others
+    values = c(1, 3), # Specifies the size for F&W vs Others
     guide = "none"      # hide size legend (optional)
   ) + 
   labs(                 # Specify your title and axis labels
@@ -508,7 +507,7 @@ ggplot(data = salary, mapping = aes(
 We can graphically show the same summary statistics we calculated before.
 Let's create a **boxplot** where our x-axis will be determined by job `Group` and the y-axis will be determined by `Percent_Diff`.  
 Because `Group` data is a *character* structure, the default ordering on the x-axis will be alphabetical. I have used the `reorder()` function here to instead order by the median `Percent_Diff`, where the first argument will be the x-variable we are interested in (`Group`). 
-```{r}
+```{r,fig.height=8}
 
 ggplot(data = salary, mapping = aes(
   x = reorder(Group, Percent_Diff, FUN = median, na.rm = TRUE),
@@ -520,7 +519,9 @@ ggplot(data = salary, mapping = aes(
     x = "Occupational Group",
     y = "Percent Difference"
   ) +
-  theme_minimal() +
+  theme_minimal()+
+  geom_hline(yintercept =  0,color = "red")+
+  scale_y_continuous(breaks = seq(-30,20,5))+  #Scale Y-axis 
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) # Rotates axis labels for readability
 # + coord_flip() #will flip the x & y axis
 

@@ -343,7 +343,7 @@ Instead of using the default `Salary65th_cleaned` object name, we can name it `s
 ```{r}
 
 # Note this will run on my computer only. This file path is nonsensical to any other computer.
-read_csv("C:/Users/lwendling/Desktop/RCourse/ADFG_R_Intro_Workshop_2025-main/data/Salary65th_cleaned.csv")
+read_csv("C:/Users/lwendling/Desktop/ADFG_R_Intro_Workshop_2025/data/Salary65th_cleaned.csv")
 
 
 # Read in your data
@@ -483,7 +483,7 @@ ggplot(data = ______, mapping = aes(
     name = "Job Family"
   ) + 
   scale_size_manual(
-    values = c(1.5, 2), # Specifies the size for F&W vs Others
+    values = c(1.5, 3), # Specifies the size for F&W vs Others
     guide = "none"      # hide size legend (optional)
   ) + 
   labs(                 # Specify your title and axis labels
@@ -512,6 +512,8 @@ ggplot(data = _________, mapping = aes(
     y = "___________"
   ) +
   theme_minimal() +
+  geom_hline(yintercept =  0,color = "red")+ #Adds red line at 0
+  scale_y_continuous(breaks = seq(-30,20,5))+  #Scale Y-axis for readability
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) # Rotates axis labels for readability
 # + coord_flip() #will flip the x & y axis
 
