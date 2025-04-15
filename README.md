@@ -39,15 +39,15 @@ After each section we will take a small break.
 10:30-12:00 - 3: Programming Basics, Part 1  
 12:00-13:30 - Lunch Break  
 13:30-15:30 - 4: Programming Basics, Part 2  
-15:30-16:30 - (Introducing R Markdown) 
+15:30-16:30 - 5: Introduction to the Tidyverse(R Markdown) 
 
 ### Day 2  
 09:00-09:30 - Welcome Back and Review  
-09:30-11:00 - 5: Amazing Charts in ggplot, Part 1  
-11:00-12:00 - 5: Amazing Charts in ggplot, Part 2  
+09:30-11:00 - 6: Amazing Charts in ggplot, Part 1  
+11:00-12:00 - 6: Amazing Charts in ggplot, Part 2  
 12:00-13:30 - Lunch Break  
-13:30-14:30 - 6: Data Manipulation
-14:30-15:30 - 7: Reading (real!) Data, Data Best Practices
+13:30-14:30 - 7: Data Manipulation
+14:30-16:30 - 7: Reading (real!) Data, Data Best Practices
 
 ### Day 3
 09:00-10:00 - 8: The Extras  
