@@ -23,9 +23,9 @@ x1[-4]
 
 # Indices with 2+ dimensions!
 # data.frames and matrices follow the same rules with square brackets []
-catchdata <- data.frame(station = c(1, 1, 2, 2, 3, 3),                            
-                        catch = c(12, 23, 44, 65, 34, 49),                        
-                        hours = c(1, 2, 2, 3, 1, 1.5),                        
+catchdata <- data.frame(station = c(1, 1, 2, 2, 3, 3),
+                        catch = c(12, 23, 44, 65, 34, 49),
+                        hours = c(1, 2, 2, 3, 1, 1.5),
                         weather = c("sun", "sun", "rain", "rain", "rain", "flood"))
 catchdata
 catchdata[1, ]   # row 1
@@ -76,8 +76,8 @@ str(list1)
 
 
 # or, if list elements have names, you can also use $ to extract things with names
-list1 <- list(catchdata=catchdata, 
-              meaningOfLife=42, 
+list1 <- list(catchdata=catchdata,
+              meaningOfLife=42,
               myFavoriteThings=c("raindrops on roses", "whiskers on kittens"))
 list1
 list1$myFavoriteThings   # grabbing the last element by name
@@ -92,40 +92,7 @@ str(list1)
 ## --------------------------------
 
 ## Some fun with logicals!
-day <- c(1, 2, 3, 1, 2, 3)
-operator <- c("A", "A", "A", "B", "B", "B")
-reading <- c(5, 1, 2, 6, NA, 9)
 
-operator
-operator[operator=="A"]  # the subset of operator where operator is "A"
-reading
-reading[operator=="A"]  # this is a bit more interesting...
-
-reading[!is.na(reading)]  # the subset where reading is not NA
-
-# sticking all together into a data.frame
-operator_data <- data.frame(day, operator, reading)
-operator_data
-
-operator_data[operator_data$day==1, ]  # ROWS where day==1
-operator_data[operator_data$day==1 | operator_data$day==2, ]  # ROWS where day==1 or 2
-operator_data[operator_data$day==1 & operator_data$day==2, ]  # ROWS where day==1 and 2
-operator_data[operator_data$day %in% 1:2, ]  # %in% saves some typing!
-
-operator_data[!is.na(operator_data$reading), ]  # ROWS where the reading is not NA
-
-# btw this is what str() does with a data.frame
-str(operator_data)
-
-# also useful is summary()
-summary(operator_data)
-
-
-
-
-
-
-## --------------------------------
 
 data(mtcars)   # this loads a built-in dataset that is included with R
 mtcars  # viewing the dataset
@@ -152,13 +119,13 @@ mtcars[mtcars$cyl %in% c(4,6), ]
 mtcars[mtcars$cyl <= 6, ]
 mtcars[mtcars$cyl != 8, ]  # technically correct but a little scary
 
-mtcars$cartype <- ifelse(mtcars$qsec < 17 & mtcars$mpg > 25, "fast and efficient", 
-                  ifelse(mtcars$qsec < 17, "fast", 
+mtcars$cartype <- ifelse(mtcars$qsec < 17 & mtcars$mpg > 25, "fast and efficient",
+                  ifelse(mtcars$qsec < 17, "fast",
                          ifelse(mtcars$mpg > 25, "efficient", "")))
 
 
 # we need the mtcars$ to tell R to look inside the mtcars data frame
-plot(mtcars$hp, mtcars$mpg)  
+plot(mtcars$hp, mtcars$mpg)
 plot(hp, mpg)   # doesn't work
 
 # there are some Base-R ways of telling R to look inside mtcars
@@ -202,8 +169,8 @@ two_B <- df1[df1$day == 2 & df1$operator == "B", ]
 not_two_B <- df1[!(df1$day == 2 & df1$operator == "B"), ]
 
 # using logical statements for assignment!
-df1$operator[df1$operator == "A"] <- "Arthur" 
-df1$operator[df1$operator == "B"] <- "Beverly" 
+df1$operator[df1$operator == "A"] <- "Arthur"
+df1$operator[df1$operator == "B"] <- "Beverly"
 
 # introducing ifelse()... like Excel's =if()
 # test, value if true, value if false
@@ -213,7 +180,7 @@ df1$day1 <- ifelse(df1$day == 1, "day 1", NA)   # adding a new column with $
 df1[is.na(df1$day1), ]    # cases where df is NA
 df1[!is.na(df1$day1), ]   # cases where df is not NA
 
-# Challenge: Beverly's machine was malfunctioning on day 2!! 
+# Challenge: Beverly's machine was malfunctioning on day 2!!
 # Task: Recode the 999 as NA
 # Multiple ways to do this!!
 df1
@@ -250,8 +217,8 @@ reading <- c(5, 1, 2, 6, NA, 9)
 
 # the ifelse operator: logical check, vector or value if TRUE, vector or value if FALSE
 ifelse(operator=="A", "Arthur", "Beverly")  # single values for TRUE and FALSE
-ifelse(operator=="A", reading, 999)  # vector for TRUE 
-ifelse(operator=="A", 999, reading)  # vector for FALSE 
+ifelse(operator=="A", reading, 999)  # vector for TRUE
+ifelse(operator=="A", 999, reading)  # vector for FALSE
 
 
 

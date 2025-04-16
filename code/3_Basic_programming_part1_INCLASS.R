@@ -109,7 +109,7 @@ vessel_name <- c("Alexander the Grape",
 # (a)
 # Try running the following code.  Resist the urge to add the missing parenthesis.
 something <- (1 + 1
-              
+
 # Note that the usual ">" thing and the cursor are missing.
 # Click in the Console and hit the <esc> key.  Whew!
 
@@ -125,7 +125,7 @@ while(TRUE) cat(sample(0:9, 1))
 # Try not to panic and click the friendly red stop sign :)
 
 x <- sample(-500:100, 35)
-while(TRUE) {
+while(TRUE) {  # trying and failing to look like the Matrix
   x <- x-1
   x[x < -500] <- sample(100:200, sum(x < -500))
   y <- ifelse(x > 0, sample(0:9, sum(x > 0), replace = TRUE), " ")
@@ -143,7 +143,7 @@ while(TRUE) {
 
 
 
-while(TRUE) {
+while(TRUE) {   # what's more pathetic, that I'm playing code golf against myself, or that I'm losing?
   cat(paste(ifelse(1:60 %in% round(30 * (1 + sin(3*as.POSIXlt(Sys.time())$sec + (1:8)/3))), "*", " "), collapse = ""), "\n")
   Sys.sleep(0.02)
 }
@@ -162,7 +162,7 @@ length_cm_cut <- cut(length_cm, breaks = c(20, 30, 40, 50))
 
 # (b)
 # What kind of variable is length_cm_cut?
-
+## Answer: factor
 
 # (c)
 # Tabulate (count) the totals in each 10-cm category using the table() function.
@@ -180,7 +180,7 @@ table(length_cm_cut)
 # 20 <= length_cm < 30 (including 20 but not including 30)
 # 30 <= length_cm < 40 (including 30 but not including 40), etc.
 
-# Look at ?cut.  Modify the code below, changing the default value of right=
+# Look at help("cut").  Modify the code below, changing the default value of right=
 # to make the table more ADFG-typical.
 ## Answer:
 ## length_cm_cut
